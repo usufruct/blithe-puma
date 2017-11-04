@@ -9,6 +9,11 @@ RSpec.describe SimpleApp do
     describe "#call" do
         let(:response) { subject.call }
 
+        it "expects a single argument" do
+            expect(subject).to receive(:new).with(anything)
+            response
+        end
+                   
         it "returns three elements" do
             expect(response.length).to eq(3)
         end
