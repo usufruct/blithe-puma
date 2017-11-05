@@ -7,19 +7,14 @@ RSpec.describe SimpleApp do
     end
 
     describe "#call" do
-        let(:response) { subject.call }
+        let(:response) { subject.call(double('env')) }
 
-        it "expects a single argument" do
-            expect(subject).to receive(:new).with(anything)
-            response
-        end
-                   
         it "returns three elements" do
             expect(response.length).to eq(3)
         end
 
         context "the first returned element" do
-            let(:first_element) { subject.call[0] }
+            let(:first_element) { subject.call(double('env'))[0] }
 
             it "is a string" do
                 expect(first_element).to be_a_kind_of(String)
@@ -27,7 +22,7 @@ RSpec.describe SimpleApp do
         end
 
         context "the second returned element" do
-            let(:second_element) { subject.call[1] }
+            let(:second_element) { subject.call(double('env'))[1] }
 
             it "is a hash" do
                 expect(second_element).to be_a_kind_of(Hash)
@@ -35,7 +30,7 @@ RSpec.describe SimpleApp do
         end
 
         context "the third returned element" do
-            let(:third_element) { subject.call[2] }
+            let(:third_element) { subject.call(double('env'))[2] }
 
             it "is enumerable" do
                 expect(third_element).to be_a_kind_of(Enumerable)
