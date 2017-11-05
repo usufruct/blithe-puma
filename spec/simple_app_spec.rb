@@ -38,7 +38,7 @@ RSpec.describe SimpleApp do
         end
 
         context "when the request is /herman" do
-            let(:env) { { 'REQUEST_PATH' => '/herman' } }
+            let(:env) { { 'PATH_INFO' => '/herman' } }
             
             it "returns a non-sense sentence" do
                 marky_markov_double = double('marky_markov', :generate_1_sentence => 'Whales!')

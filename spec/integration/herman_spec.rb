@@ -11,6 +11,7 @@ RSpec.feature "route: /herman" do
    describe "loading the page" do
        it "loads" do
            visit '/herman'
+           expect(page.text.length).to be > 0
        end
    end
 end

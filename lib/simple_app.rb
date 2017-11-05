@@ -6,7 +6,7 @@ class SimpleApp
     end
         
     def call(env)
-        case env['REQUEST_PATH']
+        case env['PATH_INFO']
         when '/herman'
         ['200',
          {'Content-Type' => 'text/plain'},
