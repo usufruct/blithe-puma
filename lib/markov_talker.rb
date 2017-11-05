@@ -2,7 +2,7 @@ require 'marky_markov'
 
 class MarkovTalker
     def initialize()
-        @herman_markov = MarkyMarkov::Dictionary.new('./data/moby_dick.mmd')
+        @herman_markov = MarkyMarkov::Dictionary.new('./data/moby_dick')
     end
     
     def melville_me()
