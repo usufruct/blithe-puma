@@ -10,8 +10,9 @@ end
 RSpec.feature "route: /herman" do
    describe "loading the page" do
        it "loads" do
+           srand(999) # page returns randon content
            visit '/herman'
-           expect(page.text.length).to be > 0
+           expect(page).to have_text('the threatening wind forbade.')
        end
    end
 end
